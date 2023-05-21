@@ -20,6 +20,11 @@ def check_plagiarism():
     output_text.delete("1.0", tk.END)
     output_text.insert(tk.END, f"Similarity Ratio: {similarity_ratio:.2f}")
 
+def reset_fields():
+    entry_text1.delete("1.0", tk.END)
+    entry_text2.delete("1.0", tk.END)
+    output_text.delete("1.0", tk.END)
+
 # Create GUI
 window = tk.Tk()
 window.title("Plagiarism Checker")
@@ -39,6 +44,10 @@ entry_text2.pack()
 # Button to Check Plagiarism
 button_check = tk.Button(window, text="Check Plagiarism", command=check_plagiarism, font=("Arial", 14), bg="#4CAF50", fg="white")
 button_check.pack()
+
+# Button to Reset Fields
+button_reset = tk.Button(window, text="Reset", command=reset_fields, font=("Arial", 14), bg="#FF4500", fg="white")
+button_reset.pack()
 
 # Output Display
 output_text = tk.Text(window, height=2, width=30, font=("Arial", 14))
